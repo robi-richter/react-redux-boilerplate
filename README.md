@@ -1,4 +1,4 @@
-React Redux Bilerplate
+React Redux Bilerplate. WIP
 =======================
 
 * https://github.com/rangle/react-redux-starter
