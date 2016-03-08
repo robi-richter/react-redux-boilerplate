@@ -1,1 +1,1 @@
-export const INCREMENT_COUNTER = 'helloWorld/INCREMENT_COUNTER'
+export const INCREMENT_COUNTER = 'demo/INCREMENT_COUNTER';

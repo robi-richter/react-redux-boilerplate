@@ -1,8 +1,6 @@
-/**
- * Created by robert on 07.03.2016.
- */
-import HelloWorld from './components/HelloWorld'
-import * as actions from './actions'
+import HelloWorld from './components/HelloWorld';
+import * as actions from './actions';
+import { default as combinedReducers } from './reducers';
 // import * as routes from './components/routes'
 
-export default { HelloWorld, actions }
+export { HelloWorld, actions, combinedReducers as reducers };

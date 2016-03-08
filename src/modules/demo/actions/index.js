@@ -1,7 +1,7 @@
-import { INCREMENT_COUNTER } from '../constants'
+import { INCREMENT_COUNTER } from '../actionTypes';
 
-export function increment () {
+export function increment() {
   return {
     type: INCREMENT_COUNTER
-  }
+  };
 }
