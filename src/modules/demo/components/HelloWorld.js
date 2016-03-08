@@ -22,7 +22,6 @@ class HelloWorld extends React.Component {
   };
 
   render() {
-    console.log('asdasd');
     const { counter, incrementCounter } = this.props;
     return (
       <div>

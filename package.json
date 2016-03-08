@@ -20,8 +20,7 @@
     "test:dev": "npm run test -- --watch",
     "deploy": "better-npm-run deploy",
     "flow:check": "babel-node bin/flow-check",
-    "codecov": "cat coverage/*/lcov.info | codecov",
-    "make:project": "babel-node bin/make-project"
+    "codecov": "cat coverage/*/lcov.info | codecov"
   },
   "betterScripts": {
     "compile": {
