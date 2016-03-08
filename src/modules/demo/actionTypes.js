@@ -1,0 +1,1 @@
+export const INCREMENT_COUNTER = 'helloWorld/INCREMENT_COUNTER'
