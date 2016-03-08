@@ -1,5 +1,5 @@
 React Redux Bilerplate
 =======================
 
-https://github.com/rangle/react-redux-starter
-https://github.com/davezuko/react-redux-starter-kit
+* https://github.com/rangle/react-redux-starter
+* https://github.com/davezuko/react-redux-starter-kit
