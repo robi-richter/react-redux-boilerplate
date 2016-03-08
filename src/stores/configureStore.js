@@ -17,7 +17,7 @@ export default function configureStore(initialState = {}, history) {
   const store = middleware(createStore)(rootReducer, initialState);
 
   if (module.hot) {
-    module.hot.accept('./rootReducer', () => {
+    module.hot.accept('../reducers/rootReducer', () => {
       const nextRootReducer = require('./../reducers/rootReducer').default;
 
       store.replaceReducer(nextRootReducer);
