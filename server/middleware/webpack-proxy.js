@@ -1,23 +1,18 @@
-// Code copied from https://github.com/popomore/koa-proxy
-// Copyright (c) 2014 popomore. Licensed under the MIT license.
-
-'use strict'
-
-var join = require('url').resolve
-var iconv = require('iconv-lite')
-var request = require('co-request').defaults({ jar: true })
+var join = require('url').resolve;
+var iconv = require('iconv-lite');
+var request = require('co-request').defaults({ jar: true });
 
 module.exports = function (options) {
-  options || (options = {})
+  options || (options = {});
 
   if (!(options.host || options.map || options.url)) {
-    throw new Error('miss options')
+    throw new Error('miss options');
   }
 
   return function * proxy (next) {
     // CHANGE from original (popmore, Oct. 9, 2015, da449f7b1d746d7443908b9a43eb4bf447467f5c)
-    var path = this.originalUrl
-    var url = resolve(path, options)
+    var path = this.originalUrl;
+    var url = resolve(path, options);
 
     // don't match
     if (!url) {

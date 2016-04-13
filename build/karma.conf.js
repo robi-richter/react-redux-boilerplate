@@ -11,7 +11,7 @@ const karmaConfig = {
   files: [
     './node_modules/phantomjs-polyfill/bind-polyfill.js',
     {
-      pattern: `./${config.dir_test}/test-bundler.js`,
+      pattern: `./${config.testDir}/test-bundler.js`,
       watched: false,
       served: true,
       included: true
@@ -21,7 +21,7 @@ const karmaConfig = {
   frameworks: ['mocha'],
   reporters: ['mocha'],
   preprocessors: {
-    [`${config.dir_test}/test-bundler.js`]: ['webpack']
+    [`${config.testDir}/test-bundler.js`]: ['webpack']
   },
   browsers: ['PhantomJS'],
   webpack: {
@@ -58,15 +58,15 @@ const karmaConfig = {
     noInfo: true
   },
   coverageReporter: {
-    reporters: config.coverage_reporters
+    reporters: config.coverageReporters
   }
 }
 
-if (config.coverage_enabled) {
+if (config.coverageEnabled) {
   karmaConfig.reporters.push('coverage')
   karmaConfig.webpack.module.preLoaders = [{
     test: /\.(js|jsx)$/,
-    include: new RegExp(config.dir_client),
+    include: new RegExp(config.clientDir),
     loader: 'isparta',
     exclude: /node_modules/
   }]

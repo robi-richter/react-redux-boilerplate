@@ -1,55 +1,59 @@
 /* eslint key-spacing:0 spaced-comment:0 */
-import _debug from 'debug'
-import path from 'path'
-import { argv } from 'yargs'
+import _debug from 'debug';
+import path from 'path';
+import { argv } from 'yargs';
 
-const debug = _debug('app:config:_base');
+const debug = _debug('app:config:base');
 const config = {
   env : process.env.NODE_ENV || 'development',
 
   // ----------------------------------
   // Project Structure
   // ----------------------------------
-  path_base  : path.resolve(__dirname, '..'),
-  dir_client : 'src',
-  dir_dist   : 'dist',
-  dir_server : 'server',
-  dir_test   : 'tests',
+  basePath  : path.resolve(__dirname, '..'),
+  clientDir : 'src',
+  distDir   : 'dist',
+  serverDir : 'server',
+  testDir   : 'tests',
 
   // ----------------------------------
   // Server Configuration
   // ----------------------------------
-  server_host : 'localhost',
-  server_port : process.env.PORT || 3000,
+  server: {
+    host: 'localhost',
+    port: process.env.PORT || 3000
+  },
 
   // ----------------------------------
   // Compiler Configuration
   // ----------------------------------
-  compiler_css_modules     : true,
-  compiler_devtool         : 'source-map',
-  compiler_hash_type       : 'hash',
-  compiler_fail_on_warning : false,
-  compiler_quiet           : false,
-  compiler_public_path     : '',
-  compiler_stats           : {
-    chunks : false,
-    chunkModules : false,
-    colors : true
+  compiler: {
+    cssModules: true,
+    devTool: 'source-map',
+    hashType: 'hash',
+    failOnWarning: false,
+    quiet: false,
+    publicPath: '',
+    stats: {
+      chunks: false,
+      chunkModules: false,
+      colors: true
+    },
+    vendor : [
+      'history',
+      'react',
+      'react-redux',
+      'react-router',
+      'react-router-redux',
+      'redux'
+    ]
   },
-  compiler_vendor : [
-    'history',
-    'react',
-    'react-redux',
-    'react-router',
-    'react-router-redux',
-    'redux'
-  ],
 
   // ----------------------------------
   // Test Configuration
   // ----------------------------------
-  coverage_enabled   : !argv.watch,
-  coverage_reporters : [
+  coverageEnabled   : !argv.watch,
+  coverageReporters : [
     { type : 'text-summary' },
     { type : 'lcov', dir : 'coverage' }
   ]
@@ -86,7 +90,7 @@ config.globals = {
 // ------------------------------------
 const pkg = require('../package.json');
 
-config.compiler_vendor = config.compiler_vendor
+config.compiler.vendor = config.compiler.vendor
   .filter((dep) => {
     if (pkg.dependencies[dep]) return true;
 
@@ -100,16 +104,16 @@ config.compiler_vendor = config.compiler_vendor
 // ------------------------------------
 // Utilities
 // ------------------------------------
-config.utils_paths = (() => {
+config.utilsPaths = (() => {
   const resolve = path.resolve;
 
   const base = (...args) =>
-    resolve.apply(resolve, [config.path_base, ...args]);
+    resolve.apply(resolve, [config.basePath, ...args]);
 
   return {
     base   : base,
-    client : base.bind(null, config.dir_client),
-    dist   : base.bind(null, config.dir_dist)
+    client : base.bind(null, config.clientDir),
+    dist   : base.bind(null, config.distDir)
   };
 })();
 

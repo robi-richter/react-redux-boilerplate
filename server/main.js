@@ -1,15 +1,14 @@
-import express from 'express'
-import webpack from 'webpack'
-import webpackConfig from '../build/webpack.config'
+import express from 'express';
+import webpack from 'webpack';
+import webpackConfig from '../build/webpack.config';
 import historyApiFallback from 'connect-history-api-fallback';
-import _debug from 'debug'
-import config from '../config'
-//import webpackProxyMiddleware from './middleware/webpack-proxy'
-import webpackDevMiddleware from './middleware/webpack-dev'
-import webpackHMRMiddleware from './middleware/webpack-hmr'
+import _debug from 'debug';
+import config from '../config';
+import webpackDevMiddleware from './middleware/webpack-dev';
+import webpackHMRMiddleware from './middleware/webpack-hmr';
 
 const debug = _debug('app:server');
-const paths = config.utils_paths;
+const paths = config.utilsPaths;
 const app = express();
 
 // This rewrites all routes requests to the root /index.html file
@@ -53,7 +52,7 @@ if (config.env === 'development') {
   // Serving ~/dist by default. Ideally these files should be served by
   // the web server and not the app server, but this helps to demo the
   // server in production.
-  app.use(express.static(paths.base(config.dir_dist)));
+  app.use(express.static(paths.base(config.distDir)));
 }
 
-export default app
+export default app;
