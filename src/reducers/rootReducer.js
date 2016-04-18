@@ -4,5 +4,5 @@ import { reducers as demo } from '../modules/demo';
 
 export default combineReducers({
   router,
-  demo
+  demo,
 });

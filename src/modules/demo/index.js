@@ -1,4 +1,4 @@
-import {default as HelloWorld} from './components/HelloWorld';
+import { default as HelloWorld } from './components/HelloWorld';
 import * as actions from './actions';
 import { default as counterReducer } from './reducers';
 

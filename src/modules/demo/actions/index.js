@@ -2,6 +2,6 @@ import { INCREMENT_COUNTER } from '../actionTypes';
 
 export function increment() {
   return {
-    type: INCREMENT_COUNTER
+    type: INCREMENT_COUNTER,
   };
 }

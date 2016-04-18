@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react';
 import '../styles/core.scss';
 
-export class SimpleContainer extends React.Component {
-  static propTypes = {
-    children: PropTypes.element
-  };
+const propTypes = {
+  children: PropTypes.element,
+};
 
-  render() {
-    return (
-      <div>{this.props.children}</div>
-    );
-  }
+function SimpleContainer(props) {
+  return (
+    <div>{props.children}</div>
+  );
 }
+
+SimpleContainer.propTypes = propTypes;
 
 export default SimpleContainer;

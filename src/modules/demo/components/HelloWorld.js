@@ -5,33 +5,32 @@ import { increment } from '../actions';
 
 function mapStateToProps(state) {
   return {
-    counter: state.demo.counter
+    counter: state.demo.counter,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    incrementCounter: () => dispatch(increment())
+    incrementCounter: () => dispatch(increment()),
   };
 }
 
-class HelloWorld extends React.Component {
-  static propTypes = {
-    counter: PropTypes.Number,
-    incrementCounter: PropTypes.Function
-  };
+const propTypes = {
+  counter: PropTypes.Number,
+  incrementCounter: PropTypes.Function,
+};
 
-  render() {
-    const { counter, incrementCounter } = this.props;
-    return (
-      <div>
-        <h1>Hello World Component</h1>
-        <h2>Counter: {counter}</h2>
-        <button onClick={incrementCounter}>Click to increment</button>
-      </div>
-    );
-  }
+function HelloWorld(props) {
+  return (
+    <div>
+      <h1>Hello World Component</h1>
+      <h2>Counter: {props.counter}</h2>
+      <button onClick={props.incrementCounter}>Click to increment</button>
+    </div>
+  );
 }
+
+HelloWorld.propTypes = propTypes;
 
 export default connect(
   mapStateToProps,
